@@ -39,3 +39,13 @@ CRUD endpoints were tested using FastAPI Swagger UI.
 
 - main.py — FastAPI application and CRUD endpoints
 - .gitignore — Files and folders excluded from Git
+
+## API Testing Evidence
+
+### Swagger UI
+
+![Swagger UI](<Swagger UI.png>)
+
+### curl -i Test
+
+![curl Test](<curl -i evidence.png>)
