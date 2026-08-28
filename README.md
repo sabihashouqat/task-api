@@ -49,3 +49,9 @@ CRUD endpoints were tested using FastAPI Swagger UI.
 ### curl -i Test
 
 ![curl Test](<curl -i evidence.png>)
+
+## In-Memory Data
+
+Tasks are stored only in memory, so any tasks created while the server is running are lost when the server restarts.
+
+This happens because the API does not use a database or file storage yet.
