@@ -24,6 +24,7 @@ http://127.0.0.1:8000
 | POST | /tasks | Create a new task |
 | PUT | /tasks/{task_id} | Update a task |
 | DELETE | /tasks/{task_id} | Delete a task |
+| GET    | /tasks/{task_id}  | Get a single task |
 
 ## Swagger Documentation
 
