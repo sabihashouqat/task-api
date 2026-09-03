@@ -2,3 +2,5 @@
 __pycache__/
 *.pyc
 main_backup.py
+tasks.db
+tasks_backup.db
