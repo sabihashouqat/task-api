@@ -154,3 +154,23 @@ All endpoints were tested using:
 
  PostgreSQL database verification
 
+## 🤖 AI vs Me
+
+### My Prompt
+Containerize my FastAPI CRUD task API with PostgreSQL using Docker Compose. Use Python with FastAPI, SQLAlchemy, and psycopg2-binary. The app should connect to PostgreSQL using DATABASE_URL from .env. Create tasks table with id, title, done columns and seed 3 example tasks only if empty. All 5 endpoints should work (GET, POST, PUT, DELETE). Use parameterized queries. Password from .env, never hardcoded. Use a volume for database persistence. Start everything with docker-compose up --build.
+
+### What AI did better:
+1. **Healthcheck added**: AI added `healthcheck` with `pg_isready` to ensure Postgres is ready before app starts
+2. **Retry logic**: AI added `wait_for_db_and_create_tables()` function for extra safety
+3. **Better restart policy**: AI used `restart: always` instead of `unless-stopped`
+
+### What AI got wrong:
+1. **Used SQLAlchemy ORM instead of raw SQL**: AI used ORM queries instead of raw parameterized queries
+2. **No explicit volume name**: AI used `pgdata` instead of `taskdata` (less descriptive)
+3. **Used `version: "3.9"`**: This is deprecated in newer Docker Compose versions
+
+### What I learned:
+- Healthcheck is important for container startup order
+- Docker networking: `db` service name is used instead of `localhost` because containers are on the same network
+- AI is good at adding safety features like healthchecks and retry logic
+- Always specify `depends_on` with `condition: service_healthy` for production
