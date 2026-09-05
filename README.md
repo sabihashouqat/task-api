@@ -169,6 +169,17 @@ Containerize my FastAPI CRUD task API with PostgreSQL using Docker Compose. Use 
 2. **No explicit volume name**: AI used `pgdata` instead of `taskdata` (less descriptive)
 3. **Used `version: "3.9"`**: This is deprecated in newer Docker Compose versions
 
+### Key Differences Found:
+
+| File | My Version | AI Version |
+|------|------------|------------|
+| docker-compose.yml | postgres:15, taskdata volume, unless-stopped | postgres:16, pgdata volume, restart: always, healthcheck |
+| Dockerfile | python:3.10-slim | python:3.10-slim (similar) |
+| database.py | SQLAlchemy ORM | SQLAlchemy ORM with retry logic |
+| main.py | Standard FastAPI | Added wait_for_db_and_create_tables() |
+| requirements.txt | Similar dependencies | Similar dependencies |
+| .env.example | DATABASE_URL format | DATABASE_URL format |
+
 ### What I learned:
 - Healthcheck is important for container startup order
 - Docker networking: `db` service name is used instead of `localhost` because containers are on the same network
