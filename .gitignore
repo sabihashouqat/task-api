@@ -4,3 +4,4 @@ __pycache__/
 main_backup.py
 tasks.db
 tasks_backup.db
+.env
